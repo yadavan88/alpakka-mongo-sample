@@ -25,16 +25,16 @@ The file vehicle_data contains a comma-separated string representing the GPS Loc
 
 To do all these operations, we need just 10 lines of code, which is amazing! 
 `
-    FileTailSource.lines(
-      path = fs.getPath(filePath),
-      maxLineSize = 5000,
-      pollingInterval = 100.millis
-    ).map(s => {
-      val v = s.split(",")
-      VehicleData(v(0).toLong, GPSLocation(v(1).toDouble, v(2).toDouble))
-    }).runWith{
-      MongoSink.insertOne(vehicleCollection)
-    }
+FileTailSource.lines(
+  path = fs.getPath(filePath),
+  maxLineSize = 5000,
+  pollingInterval = 100.millis
+).map(s => {
+  val v = s.split(",")
+  VehicleData(v(0).toLong, GPSLocation(v(1).toDouble, v(2).toDouble))
+}).runWith{
+  MongoSink.insertOne(vehicleCollection)
+}
 `
 We can replace the FileSource with one of the many available sources like Kafka, MQTT, etc based on the requirements. 
 
