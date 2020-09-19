@@ -1,0 +1,1 @@
+# A sample project for Alpakka Mongo integration #
