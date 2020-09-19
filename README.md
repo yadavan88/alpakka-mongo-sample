@@ -24,7 +24,8 @@ The above diagram shows the flow used in this sample project.
 The file vehicle_data contains a comma-separated string representing the GPS Location of each vehicle. This is read by the connector and is transformed into a case class VehicleData. This data is then inserted into MongoDB, which can be used for further processing. Whenever a new record comes in the file, the source FileTailSource reads the content based on the provided polling interval and pushed along the Alpakka pipeline.
 
 To do all these operations, we need just 10 lines of code, which is amazing! 
-`
+
+```scala
 FileTailSource.lines(
   path = fs.getPath(filePath),
   maxLineSize = 5000,
@@ -35,7 +36,8 @@ FileTailSource.lines(
 }).runWith{
   MongoSink.insertOne(vehicleCollection)
 }
-`
+```
+
 We can replace the FileSource with one of the many available sources like Kafka, MQTT, etc based on the requirements. 
 
 ## Conclusion ##
