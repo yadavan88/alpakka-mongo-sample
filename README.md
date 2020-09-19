@@ -18,7 +18,7 @@ Built-in support for streaming, and ability to apply backpressure
 In this project, I have tried to build a simple pipeline to push an incoming set of data into MongoDB. For simplicity, I have used a growing file as the source of the data. But it may well be an IoT device using MQTT protocol or a complex Kafka system as a source. 
 For this sample project, I have taken the scenario of an IoT device that tracks the GPS location of the vehicle. An Akka scheduler is used to simulate the data, by writing random information to a file. 
 The Alpakka integration service reads from the file and transforms the data into the necessary format, and inserts it into a MongoDB collection. 
-
+![Alt text](src/main/resources/flow.jpg?raw=true "Alpakka Pipeline")
 The above diagram shows the flow used in this sample project. 
 
 The file vehicle_data contains a comma-separated string representing the GPS Location of each vehicle. This is read by the connector and is transformed into a case class VehicleData. This data is then inserted into MongoDB, which can be used for further processing. Whenever a new record comes in the file, the source FileTailSource reads the content based on the provided polling interval and pushed along the Alpakka pipeline.
