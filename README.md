@@ -3,7 +3,7 @@
 ## Introduction ##
 [Alpakka](https://doc.akka.io/docs/alpakka/current/) is a reactive stream-based integration toolkit built on top of akka and akka-streams. Since its arrival, it has positively impacted the integration of different systems. Using alpakka, it is very easy to implement an integration pipeline between disparate systems.
 
-## Comparision ##
+## Comparison ##
 Apache Camel is one of the most popular integration libraries, and it has been around for a very long time. Camel is used in many of the large enterprise applications. Also, Camel has more than 300 components available, which covers almost any systems we can think of. 
 
 Alpkka provides an alternative for apache camel. That is evident even in the project name(alpaca is a camelid animal). Even though Alpakka is relatively very young, it is already able to get good attention. Alpakka is built on top of Akka and Akka-streams, and follows reactive programming principles. Alpakka already has close to 50 connectors available. 
